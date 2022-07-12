@@ -25,5 +25,23 @@
         "gender": "Male",
         "age": 20,
         "password": "qwer"
+    },
+    {
+        "id": 1657660098834,
+        "first_name": "K",
+        "last_name": "K",
+        "email": "K@gm.com",
+        "gender": "Male",
+        "age": 20,
+        "password": "qwer"
+    },
+    {
+        "id": 1657663506172,
+        "first_name": "Meenu",
+        "last_name": "K",
+        "email": "Meenu@gm.com",
+        "gender": "Female",
+        "age": 30,
+        "password": "6cda6d0d7efdd36d1382e00ad735b87eb094f75c6fb2f460141caa5d7cfdfd62"
     }
 ]
