@@ -1,0 +1,29 @@
+[
+    {
+        "id": "1657657480438",
+        "first_name": "prathyu",
+        "last_name": "PK",
+        "email": "prathyu@gm.com",
+        "gender": "Male",
+        "age": 22,
+        "password": "12345"
+    },
+    {
+        "id": 1657657593069,
+        "first_name": "manu",
+        "last_name": "K",
+        "email": "manu@gm.com",
+        "gender": "Male",
+        "age": 22,
+        "password": "2233"
+    },
+    {
+        "id": 1657658024309,
+        "first_name": "anu",
+        "last_name": "K",
+        "email": "anu@gm.com",
+        "gender": "Male",
+        "age": 20,
+        "password": "qwer"
+    }
+]
