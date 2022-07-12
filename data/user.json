@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "first_name": "Ramesh",
+    "last_name": "K",
+    "email": "Ramesh@cbslocal.com",
+    "gender": "Male",
+    "age": 25,
+    "password": "1234"
+  },
+  {
+    "id": 2,
+    "first_name": "Murli",
+    "last_name": "PV",
+    "email": "Murli@sphinn.com",
+    "gender": "Female",
+    "age": 35,
+    "password": "1234"
+  }
+]
