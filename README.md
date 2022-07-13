@@ -23,7 +23,7 @@
 - For getting single User by id **( GET )**
   - `/user/:id`
 
-- For edit User details **( Patch )**
+- For edit User details **( PUT )**
   - `/user/edit:id`
 
 - For delete single user data **( DELETE )**
