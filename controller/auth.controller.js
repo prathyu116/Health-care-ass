@@ -15,11 +15,15 @@ const register = async (req, res) => {
       password,
     };
     //some validation checking
-    if (password.length < 3) {
+    if (first_name === undefined || last_name === undefined || email === undefined || password === undefined) {
       res.writeHead(400, { "Content-Type": "application/json" });
-
-      return res.end(JSON.stringify({ message: "Password length atleast 4" }));
+      return res.end(JSON.stringify({ message: "All field required" }));
     }
+      if (password.length < 3) {
+        res.writeHead(400, { "Content-Type": "application/json" });
+
+        return res.end(JSON.stringify({ message: "Password length atleast 4" }));
+      }
     if (password.search(/[a-z]/i) < 0) {
       res.writeHead(400, { "Content-Type": "application/json" });
       return res.end(JSON.stringify({ message: "Your password must contain at least one letter" }));

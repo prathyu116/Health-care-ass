@@ -1,12 +1,10 @@
-// install and import express
 const http = require("http");
-const { getUsers, getUser, createUser, updateUser, deleteUser } = require("./controller/user.controler");
+const { getUsers, getUser, updateUser, deleteUser } = require("./controller/user.controler");
 const { register , login } = require("./controller/auth.controller");
 
 
-const PORT = 8000;
-const server = http.createServer((req, res) => {
 
+const server = http.createServer((req, res) => {
   if (req.url === "/users" && req.method === "GET") {
     getUsers(req, res);
   } else if (req.url.match(/\/user\/([0-9]+)/) && req.method === "GET") {
@@ -27,6 +25,7 @@ const server = http.createServer((req, res) => {
     res.end(JSON.stringify({ message: "Rote Not Found" }));
   }
 });
+const PORT = 8000;
 server.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 });

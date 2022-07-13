@@ -67,7 +67,8 @@ const  updateUser = async (req, res, id) =>{
           res.end(JSON.stringify({message : "Deleted succusfully"}));
         }
       } catch (err) {
-        console.log(err);
+         res.writeHead(500);
+         res.end();
       }
 
 }
