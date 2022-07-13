@@ -16,5 +16,14 @@
         "gender": "male",
         "age": 20,
         "password": "bbf9ef225fb328dc99ec71e005af8018a0775106604b7b39f78bd1228e31b57a"
+    },
+    {
+        "id": 1657694363235,
+        "first_name": "neenu",
+        "last_name": "K",
+        "email": "neenu@gm.com",
+        "gender": "fmale",
+        "age": 100,
+        "password": "bbf9ef225fb328dc99ec71e005af8018a0775106604b7b39f78bd1228e31b57a"
     }
 ]

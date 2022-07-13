@@ -1,17 +1,18 @@
 const User = require("../model/user.model");
 const { getPostData } = require("../util");
 
- const getUsers = async (req, res) =>{
+const getUsers = async (req, res) => {
   try {
     const users = await User.findAllUser();
     res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify(users));
   } catch (err) {
-    console.log(err);
+    res.writeHead(500);
+    res.end();
   }
-}
+};
 
- const getUser = async (req, res, id) => {
+const getUser = async (req, res, id) => {
   try {
     const user = await User.findById(id);
     if (user.length === 0) {
@@ -22,12 +23,12 @@ const { getPostData } = require("../util");
       res.end(JSON.stringify(user));
     }
   } catch (err) {
-    console.log(err);
+    res.writeHead(500);
+    res.end();
   }
-}
+};
 
-
-const  updateUser = async (req, res, id) =>{
+const updateUser = async (req, res, id) => {
   const user = await User.findById(id);
   try {
     console.log(user);
@@ -52,26 +53,26 @@ const  updateUser = async (req, res, id) =>{
       return res.end(JSON.stringify(newUpdatedUser));
     }
   } catch (err) {
-    console.log(err);
+    res.writeHead(500);
+    res.end();
   }
-}
- const  deleteUser = async (req,res,id) => {
-      try {
-        const user = await User.findById(id);
-        if (user.length === 0) {
-          res.writeHead(404, { "Content-Type": "application/json" });
-          res.end(JSON.stringify({ message: "user not found" }));
-        } else {
-            await User.deleteUser(id);
-          res.writeHead(200, { "Content-Type": "application/json" });
-          res.end(JSON.stringify({message : "Deleted succusfully"}));
-        }
-      } catch (err) {
-         res.writeHead(500);
-         res.end();
-      }
-
-}
+};
+const deleteUser = async (req, res, id) => {
+  try {
+    const user = await User.findById(id);
+    if (user.length === 0) {
+      res.writeHead(404, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ message: "user not found" }));
+    } else {
+      await User.deleteUser(id);
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ message: "Deleted succusfully" }));
+    }
+  } catch (err) {
+    res.writeHead(500);
+    res.end();
+  }
+};
 module.exports = {
   getUsers,
   getUser,

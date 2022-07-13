@@ -1,6 +1,6 @@
 const http = require("http");
-const { getUsers, getUser, updateUser, deleteUser } = require("./controller/user.controler");
-const { register , login } = require("./controller/auth.controller");
+const { getUsers, getUser, updateUser, deleteUser } = require("./src/controller/user.controler");
+const { register , login } = require("./src/controller/auth.controller");
 
 
 

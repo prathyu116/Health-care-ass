@@ -19,6 +19,10 @@ const register = async (req, res) => {
       res.writeHead(400, { "Content-Type": "application/json" });
       return res.end(JSON.stringify({ message: "All field required" }));
     }
+    if(age > 100  || age <= 0){
+      res.writeHead(400, { "Content-Type": "application/json" });
+      return res.end(JSON.stringify({ message: "The age must  between 1 and 100" }));
+    }
       if (password.length < 3) {
         res.writeHead(400, { "Content-Type": "application/json" });
 
