@@ -24,10 +24,10 @@
   - `/user/:id`
 
 - For edit User details **( PUT )**
-  - `/user/edit:id`
+  - `/user/edit/:id`
 
 - For delete single user data **( DELETE )**
-    - `/user/delete:id`
+    - `/user/delete/:id`
 
 ## - Register
 
