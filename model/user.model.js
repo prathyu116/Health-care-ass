@@ -15,11 +15,13 @@ const checkPassword =  (pwd,email) => {
  return found
 
 };
+
 const findAllUser = () => {
   return new Promise((resolve, reject) => {
     resolve(usersDB);
   });
 };
+
 const findOne = (user) => {
   const found = usersDB.find((usr) => usr.email === user.email);
   return found;

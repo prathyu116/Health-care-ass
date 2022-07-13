@@ -14,11 +14,21 @@ const register = async (req, res) => {
       age,
       password,
     };
-    let userExi = await User.findOne(user);
+    //some validation checking
+    if (password.length < 3) {
+      res.writeHead(400, { "Content-Type": "application/json" });
 
+      return res.end(JSON.stringify({ message: "Password length atleast 4" }));
+    }
+    if (password.search(/[a-z]/i) < 0) {
+      res.writeHead(400, { "Content-Type": "application/json" });
+      return res.end(JSON.stringify({ message: "Your password must contain at least one letter" }));
+    }
+
+    let userExi = await User.findOne(user);
     if (userExi) {
       res.writeHead(400, { "Content-Type": "application/json" });
-      res.end(JSON.stringify({ message: "Email already exists" }));
+      return res.end(JSON.stringify({ message: "Email already exists" }));
     } else {
       // if new user, create it or allow to register;
       const newUser = await User.create(user);
@@ -42,18 +52,17 @@ const login = async (req, res) => {
 
     if (!userExi) {
       res.writeHead(400, { "Content-Type": "application/json" });
-      res.end(JSON.stringify({ message: "Wrong Email or Password" }));
+      return res.end(JSON.stringify({ message: "Wrong Email or Password" }));
     }
-    const match = User.checkPassword(user.password, user.email);
-    console.log(match);
+    const verifyedUser = User.checkPassword(user.password, user.email);
 
-    if (!match) {
+    if (!verifyedUser) {
       res.writeHead(400, { "Content-Type": "application/json" });
-      res.end(JSON.stringify({ message: "Wrong Email or Password" }));
+      return res.end(JSON.stringify({ message: "Wrong Email or Password" }));
     }
 
     res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify({ message: "Loggined succusfully" }));
+    return res.end(JSON.stringify({ message: "Loggined succusfully", user: verifyedUser }));
   } catch (err) {
     res.writeHead(500, { "Content-Type": "application/json" });
     return res.end();

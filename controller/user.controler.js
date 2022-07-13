@@ -14,7 +14,6 @@ const { getPostData } = require("../util");
  const getUser = async (req, res, id) => {
   try {
     const user = await User.findById(id);
-    console.log("user", user);
     if (user.length === 0) {
       res.writeHead(404, { "Content-Type": "application/json" });
       res.end(JSON.stringify({ message: "user not found" }));
@@ -26,31 +25,10 @@ const { getPostData } = require("../util");
     console.log(err);
   }
 }
-const createUser = async  (req, res) => {
-  try {
-    const body = await getPostData(req);
 
-    const { first_name, last_name, email, gender, age, password } = JSON.parse(body);
-    const user = {
-      first_name,
-      last_name,
-      email,
-      gender,
-      age,
-      password,
-    };
-    const newUser = await User.create(user);
-
-    res.writeHead(201, { "Content-Type": "application/json" });
-    return res.end(JSON.stringify(newUser));
-  } catch (err) {
-    console.log(err);
-  }
-};
 
 const  updateUser = async (req, res, id) =>{
   const user = await User.findById(id);
-
   try {
     console.log(user);
     if (user.length === 0) {
@@ -96,7 +74,6 @@ const  updateUser = async (req, res, id) =>{
 module.exports = {
   getUsers,
   getUser,
-  createUser,
   updateUser,
   deleteUser,
 };
