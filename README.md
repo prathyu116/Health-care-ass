@@ -2,6 +2,19 @@
 ## Here are some API endpoints and there work :
 
 ### home : `http://localhost:8000`
+## Usage
+
+```
+# Clone
+  git clone https://github.com/prathyu116/Health-care-ass.git
+  cd Health-care-ass
+  
+# Install
+  npm install
+
+# Run
+ npm start
+```
 
 ## - User
 
